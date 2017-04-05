@@ -32,7 +32,7 @@ module DPL
         if options[:user] and options[:password]
           @api ||= Octokit::Client.new(:login => options[:user], :password => options[:password])
         else
-          @api ||= Octokit::Client.new(:access_token => option(:api_key))
+          @api ||= Octokit::Client.new(:access_token => option(:api_key).tap {|x| puts "api_key: #{x}"})
         end
       end
 
